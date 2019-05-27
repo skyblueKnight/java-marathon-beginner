@@ -8,6 +8,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.example.domain.User;
 import com.example.form.UserForm;
 
+/**
+ * ユーザ情報を登録するコントローラ.
+ * 
+ * @author user
+ *
+ */
 @Controller
 @RequestMapping("/user-info")
 public class UserInfoController {
@@ -31,13 +37,12 @@ public class UserInfoController {
 	
 	
 	/**
-	 * ユーザ情報を受け取ってドメインに入れる.
-	 * ドメインに入れた後、リクエストスコープに入れる。
+	 * ユーザ情報を登録します.
 	 * 
 	 * @param name　入力されたユーザの名前
 	 * @param age　入力されたユーザの年齢
 	 * @param address　入力されたユーザの住所
-	 * @return　出力画面遷移のメソッド（リダイレクト）
+	 * @return　ユーザ情報出力画面
 	 */
 	@RequestMapping("/receive-info")
 	public String receiveInfo(UserForm userForm, Model model) {

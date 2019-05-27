@@ -1,7 +1,7 @@
 package com.example.domain;
 
 /**
- * Useドメイン.
+ * Userドメイン.
  * 
  * @author momoyo kanie
  *
