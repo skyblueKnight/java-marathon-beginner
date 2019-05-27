@@ -30,6 +30,20 @@ public class RegisterController {
 	}
 	
 	
+	@RequestMapping("/to-total-price")
+	public String toTotalPrice() {
+		return "total-price";
+	}
+	
+	
+	/**
+	 * 購入されたグッズの税抜き・税込み価格の合計を求める.
+	 * 
+	 * @param goods1　購入されたグッズ１の価格
+	 * @param goods2　購入されたグッズ２の価格
+	 * @param goods3　購入されたグッズ３の価格
+	 * @return 合計金額出力画面（リダイレクト）
+	 */
 	@RequestMapping("/calc-total")
 	public String calcTotal(Integer goods1, Integer goods2, Integer goods3) {
 		application.setAttribute("goods1", goods1);
@@ -39,7 +53,7 @@ public class RegisterController {
 		application.setAttribute("taxInclusivePrice", ((goods1 + goods2 + goods3)*1.08));
 		
 		
-		return "total-goods";
+		return "redirect:/rezister/to-total-price";
 	}
 	
 	
