@@ -30,6 +30,11 @@ public class RegisterController {
 	}
 	
 	
+	/**
+	 * 合計金額出力画面に遷移する.
+	 * 
+	 * @return 合計金額出力画面
+	 */
 	@RequestMapping("/to-total-price")
 	public String toTotalPrice() {
 		return "total-price";
@@ -46,11 +51,8 @@ public class RegisterController {
 	 */
 	@RequestMapping("/calc-total")
 	public String calcTotal(Integer goods1, Integer goods2, Integer goods3) {
-		application.setAttribute("goods1", goods1);
-		application.setAttribute("goods2", goods2);
-		application.setAttribute("goods3", goods3);
-		application.setAttribute("BeforeTaxPrice", (goods1 + goods2 + goods3));
-		application.setAttribute("taxInclusivePrice", ((goods1 + goods2 + goods3)*1.08));
+		application.setAttribute("beforeTaxPrice", (goods1 + goods2 + goods3));
+		application.setAttribute("taxInclusivePrice", (int)((goods1 + goods2 + goods3)*1.08));
 		
 		
 		return "redirect:/rezister/to-total-price";
