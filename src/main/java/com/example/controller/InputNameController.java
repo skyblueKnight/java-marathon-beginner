@@ -14,9 +14,10 @@ public class InputNameController {
 	}
 
 	/**
-	 * 名前を受け取ってリクエストスコープに入れる.<br>
+	 * 名前を受け取ってリクエストスコープに入れる.
 	 * 
-	 * @param name アウトプットする名前
+	 * @param name　入力された名前
+	 * @param model モデル
 	 * @return アウトプット画面
 	 */
 	@RequestMapping("/input-name")
