@@ -7,18 +7,18 @@
 </head>
 <body>
 
-<table>
+<table th:object="${user}">
 	<tr>
 		<td>名前：</td>
-		<td th:text="${session.name}">dummy</td>
+		<td th:text="*{name}">dummy</td>
 	</tr>
 	<tr>
 		<td>年齢：</td>
-		<td th:text="${session.age}">dummy</td>
+		<td th:text="*{age}">dummy</td>
 	</tr>
 	<tr>
 		<td>住所：</td>
-		<td th:text="${session.address}">dummy</td>
+		<td th:text="*{address}">dummy</td>
 	</tr>
 </table>
 

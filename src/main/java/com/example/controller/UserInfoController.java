@@ -1,18 +1,23 @@
 package com.example.controller;
 
-import javax.servlet.http.HttpSession;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.example.domain.User;
+import com.example.form.UserForm;
 
 @Controller
 @RequestMapping("/user-info")
 public class UserInfoController {
 	
-	@Autowired
-	private HttpSession session;
-	
+	@ModelAttribute
+	public UserForm setUpForm() {
+		return new UserForm();
+	}
+
+		
 
 	/**
 	 * ユーザ情報登録画面に遷移する.
@@ -24,19 +29,10 @@ public class UserInfoController {
 		return "input-user-info";
 	}
 	
-	/**
-	 * ユーザ情報出力画面に遷移する.
-	 * 
-	 * @return ユーザ情報出力画面
-	 */
-	@RequestMapping("/to-output-user-info")
-	public String toOutputUserInfo() {
-		return "output-user-info";
-	}
-	
 	
 	/**
-	 * ユーザ情報を受け取ってセッションスコープに入れる.
+	 * ユーザ情報を受け取ってドメインに入れる.
+	 * ドメインに入れた後、リクエストスコープに入れる。
 	 * 
 	 * @param name　入力されたユーザの名前
 	 * @param age　入力されたユーザの年齢
@@ -44,13 +40,16 @@ public class UserInfoController {
 	 * @return　出力画面遷移のメソッド（リダイレクト）
 	 */
 	@RequestMapping("/receive-info")
-	public String receiveInfo(String name, Integer age, String address) {
+	public String receiveInfo(UserForm userForm, Model model) {
 		
-		session.setAttribute("name", name);
-		session.setAttribute("age",age);
-		session.setAttribute("address",address);
+		User user = new User();
+		user.setName(userForm.getName());
+		user.setAge(userForm.getIntAge());
+		user.setAddress(userForm.getAddress());
 		
-		return "redirect:/user-info/to-output-user-info";
+		model.addAttribute("user",user);
+	
+		return "output-user-info";
 	}
 	
 }

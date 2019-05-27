@@ -7,11 +7,11 @@
 </head>
 <body>
 
-<form action="output-user-info.html" th:action="@{/user-info/receive-info}" method="post">
+<form action="output-user-info.html" th:action="@{/user-info/receive-info}" method="post" th:object="${userForm}">
 
-	<label for="nameField">名前：</label><input id="nameField" type="text" name="name"><br>
-	<label for="ageField">年齢：</label><input id="ageField" type="text" name="age"><br>
-	<label for="addressField">住所：</label><input id="addressField" type="text" name="address"><br>
+	<label for="nameField">名前：</label><input id="nameField" type="text" name="name" th:field="*{name}"><br>
+	<label for="ageField">年齢：</label><input id="ageField" type="text" name="age" th:field="*{age}"><br>
+	<label for="addressField">住所：</label><input id="addressField" type="text" name="address" th:field="*{address}"><br>
 	<br>
 	<button>送信</button>
 
