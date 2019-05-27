@@ -7,7 +7,20 @@
 </head>
 <body>
 
-名前：
+<table>
+	<tr>
+		<td>名前：</td>
+		<td th:text="${session.name}">dummy</td>
+	</tr>
+	<tr>
+		<td>年齢：</td>
+		<td th:text="${session.age}">dummy</td>
+	</tr>
+	<tr>
+		<td>住所：</td>
+		<td th:text="${session.address}">dummy</td>
+	</tr>
+</table>
 
 </body>
 </html>
