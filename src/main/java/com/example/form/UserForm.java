@@ -1,5 +1,11 @@
 package com.example.form;
 
+/**
+ * Userドメインのフォーム.
+ * 
+ * @author momoyo kanie
+ *
+ */
 public class UserForm {
 	/** 名前 */
 	private String name;

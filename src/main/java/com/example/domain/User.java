@@ -1,5 +1,11 @@
 package com.example.domain;
 
+/**
+ * Useドメイン.
+ * 
+ * @author momoyo kanie
+ *
+ */
 public class User {
 	
 	/** 名前 */

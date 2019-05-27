@@ -44,8 +44,8 @@ public class CalcController {
 	}
 	
 	
-	@RequestMapping("/")
-	public String Calc(int num1, int num2) {
+	@RequestMapping("/calc-mult")
+	public String CalcMult(int num1, int num2) {
 		
 		session.setAttribute("num1", num1);
 		session.setAttribute("num2", num2);
