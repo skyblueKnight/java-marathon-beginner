@@ -52,7 +52,7 @@ public class RegisterController {
 	@RequestMapping("/calc-total")
 	public String calcTotal(Integer goods1, Integer goods2, Integer goods3) {
 		application.setAttribute("beforeTaxPrice", (goods1 + goods2 + goods3));
-		application.setAttribute("taxInclusivePrice", (int)((goods1 + goods2 + goods3)*1.08));
+		application.setAttribute("taxInclusivePrice", ((goods1 + goods2 + goods3)*1.08));
 		
 		
 		return "redirect:/rezister/to-total-price";
